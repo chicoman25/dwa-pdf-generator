@@ -1,40 +1,41 @@
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    
-    #pdf
-      #header
-        img(src="/images/logo.png")
+extend ../layout
 
-        p#address 
-          Dandy-Walker Alliance, Inc. 10325 Kensington Pkwy, Suite 384 Kensington, MD, USA 20895
+block head
+  link(rel='stylesheet', href='/stylesheets/pdf.css')
 
-      #content
-        p #{todays_date}
-        p Dear #{donation.name},
-        p Thank you so much for supporting individuals living with Dandy-Walker Syndrome and for your generous donation of $#{donation.amount} on #{donation.date}.
+block content
+  #pdf
+    #header
+      img(src="/images/logo.png")
 
-        p The first eight years have been very exciting for the Dandy-Walker Alliance and the future promises to exceed what you've helped build.  We continue to disseminate information worldwide, provide outreach and support to families, produce educational publications, host awareness events and programs, and fund research activities for the most common malformation of the hindbrain region, Dandy-Walker Syndrome.  
+      p#address 
+        Dandy-Walker Alliance, Inc. 10325 Kensington Pkwy, Suite 384 Kensington, MD, USA 20895
 
-        p In January 2014 we launched a worldwide Dandy-Walker Patient Registry allowing individuals diagnosed with Dandy-Walker, their family members and researchers to gather and share information and health history in a safe, confidential, online database.  The registry will help us better understand the major health issues among individuals with Dandy-Walker, improve the natural history for the diagnosis and help us recruit for future pre-clinical research studies and future therapeutic clinical trials all while educating the community and raising awareness regarding diagnosis, study of the causes and treatments.
+    #content
+      p #{todays_date}
+      p Dear #{donation.name},
+      p Thank you so much for supporting individuals living with Dandy-Walker Syndrome and for your generous donation of $#{donation.amount} on #{donation.date}.
 
-        p In March 2014 we finalized a deal to fund the largest ever whole exome sequencing project (i.e. cutting edge science) of Dandy-Walker Syndrome samples ever worldwide. This will advance our knowledge into the biology of the birth defect and is likely to discover more genes involved.
+      p The first eight years have been very exciting for the Dandy-Walker Alliance and the future promises to exceed what you've helped build.  We continue to disseminate information worldwide, provide outreach and support to families, produce educational publications, host awareness events and programs, and fund research activities for the most common malformation of the hindbrain region, Dandy-Walker Syndrome.  
 
-        p Thank you again for this gift and for caring so deeply about the needs of others, especially children, and we hope you will continue to follow us at www.Dandy-Walker.org, on Facebook at www.facebook.com/dandywalker and on Twitter @DandyWalkerAll.
+      p In January 2014 we launched a worldwide Dandy-Walker Patient Registry allowing individuals diagnosed with Dandy-Walker, their family members and researchers to gather and share information and health history in a safe, confidential, online database.  The registry will help us better understand the major health issues among individuals with Dandy-Walker, improve the natural history for the diagnosis and help us recruit for future pre-clinical research studies and future therapeutic clinical trials all while educating the community and raising awareness regarding diagnosis, study of the causes and treatments.
 
-        #signature-block
+      p In March 2014 we finalized a deal to fund the largest ever whole exome sequencing project (i.e. cutting edge science) of Dandy-Walker Syndrome samples ever worldwide. This will advance our knowledge into the biology of the birth defect and is likely to discover more genes involved.
 
-          #signature Very respectfully,
-          #name Eric Cole
-          #title Executive Director 
-          #organization Dandy-Walker Alliance, Inc.
+      p Thank you again for this gift and for caring so deeply about the needs of others, especially children, and we hope you will continue to follow us at www.Dandy-Walker.org, on Facebook at www.facebook.com/dandywalker and on Twitter @DandyWalkerAll.
 
-        br
-        form(action='/generate_pdf', method='post')
-          input(type='hidden', name="todays_date", value=todays_date)  
-          input(type='hidden', name="donation[name]", value=donation.name)       
-          input(type='hidden',  name="donation[date]", value=donation.date)
-          input(type='hidden', name="donation[amount]", value=donation.amount)     
-          button.btn.btn-default(type="submit") Generate PDF    
-      #footer
+      #signature-block
+
+        #signature Very respectfully,
+        #name Eric Cole
+        #title Executive Director 
+        #organization Dandy-Walker Alliance, Inc.
+
+      br
+      form(action='/generate_pdf', method='post')
+        input(type='hidden', name="todays_date", value=todays_date)  
+        input(type='hidden', name="donation[name]", value=donation.name)       
+        input(type='hidden',  name="donation[date]", value=donation.date)
+        input(type='hidden', name="donation[amount]", value=donation.amount)     
+        button.btn.btn-default(type="submit") Generate PDF    
+    #footer
