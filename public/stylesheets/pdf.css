@@ -1,0 +1,11 @@
+#pdf{
+   font-family: "Times New Roman"; 
+} 
+
+#pdf #header {
+   text-align: center;
+}
+
+#pdf #header #address {
+   color: #FF0000;
+}

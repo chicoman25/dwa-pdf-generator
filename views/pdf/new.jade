@@ -1,0 +1,23 @@
+extend ../layout
+
+block content
+
+  .row
+    .col-md-4    
+
+      form(action='/pdf', method='post')
+        .form-group
+          label(for='donation[name]') Donor Name      
+          input.form-control(type='text', placeholder='Donor Name', name="donation[name]", value='')
+
+        .form-group
+          label(for='donation[date]') Donation Date      
+          input.form-control(type='text', placeholder='MM/DD/YYYY', name="donation[date]", value='')
+      
+        .form-group
+          label(for='donation[amount]') Donation Amount
+          .input-group
+            .input-group-addon $
+            input.form-control(type='text', placeholder='Donation Amount', name="donation[amount]", value='')
+
+        button.btn.btn-default(type="submit") Submit

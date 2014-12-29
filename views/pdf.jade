@@ -1,0 +1,8 @@
+extend layout
+
+block content
+  form(action='/pdf', method='post')
+    .control-group
+      label.control-label(for='message_name') Your Name
+      .controls
+        input#message_name.input-xxlarge(type='text', placeholder='Name', name='', value='')
